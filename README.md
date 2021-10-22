@@ -55,7 +55,19 @@ Default QGIS2Web output
 
 - [Easter Eggs](./qgis2web/ol3/easter/index.html): A basic openlayers map with the standard QGIS Easter Egg data
 
-## Guide
+#### Leaflet
+
+Default QGIS2Web output
+
+- [Easter Eggs](./qgis2web/leaflet/easter/index.html): A basic leaflet map with the standard QGIS Easter Egg data
+
+#### Mapbox
+
+Default QGIS2Web output
+
+- [Easter Eggs](./qgis2web/mapbox/easter/index.html): A basic Mapbox GL JS map with the standard QGIS Easter Egg data
+
+## Guides
 
 todo;
 

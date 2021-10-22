@@ -11,9 +11,9 @@ The concepts outlined in this documentation and the samples provided may be rele
 
 ## Notes
 
-There are a greate many considerations to take into account when publishing assets to the internet, especially when it comes to geospatial applications and web mapping projects. This repository is not optimized for best practices and efficient resource utilisation, and most of the technologie used will have their own consideration outlined in the relevant sections.
+There are a greate many considerations to take into account when publishing assets to the internet, especially when it comes to geospatial applications and web mapping projects. This repository is not optimized for best practices and efficient resource utilisation, and most of the technologies used will have their own consideration outlined in the relevant sections.
 
-The samples provided here are provided for demonstration purposes only and should not be considerd effective reference implementations! The following list outlines some general considerations which apply to the majority of generic implementations:
+The samples provided here are provided for demonstration purposes only and should not be considered effective reference implementations! The following list outlines some general considerations which apply to the majority of generic implementations:
 
 - Usage: Any free service is likely not designed for high throughput and although hosting services in this manner for community projects may be beneficial, it should not be relied upon. If you are using the service for commercial purposes, it might be useful for experimentation but is definitely not a suitable option for production purposes.
 - Performance: Most static assets and simplified applications will not be optimised effectively, but worse still is that in instances like qgis2web packaging up spatial data as JSON objects, the default performance will be very very poor. In those cases, all the data must be downloaded before the map is even rendered, and is only suitable for very simple projects. In most production instances, dedicated web map services are the recommended approach for web map production. Using free-tier services will also excacerbate already problemati performance issues as well.
@@ -36,7 +36,7 @@ Please note that GitHub pages is not intended as a free web hosting service and 
 
 Various technologies can be used to simply publish, share, and collaborate on spatial information.
 
-- GeoJSON: GitHub will actually create a leaflet map view with OSM tiles and show off your data automagically. It's pretty awesome.
+- GeoJSON: GitHub will actually create a mapbox mapmap view with to show off your data automagically. It's pretty awesome.
 - Web map apps and frameworks
 - Web map services
 - Map compilation utilities
@@ -44,6 +44,16 @@ Various technologies can be used to simply publish, share, and collaborate on sp
 ## Samples
 
 Links to example map projects
+
+### GeoJSON
+
+The QGIS Easter Egg Data can be viewed directly in GitHub:
+
+- https://github.com/zacharlie/silver-spork/blob/publish/geojson/easter/contributors.geojson
+- https://github.com/zacharlie/silver-spork/blob/publish/geojson/easter/hackfests.geojson
+- https://github.com/zacharlie/silver-spork/blob/publish/geojson/easter/worldmap.geojson
+
+As stated, this will automagically display your data in a simple mapbox app frame. Obviously this gets a bit more complex when you want to have multiple layers or have various different items in a feature collection, but we'll get to that later.
 
 ### QGIS2Web
 

@@ -50,12 +50,13 @@
     </style>
 
     <script>
-      function markup(){
+      async function markup(){
         const output = document.getElementById('output');
-        fetch('https://raw.githubusercontent.com/zacharlie/silver-spork/publish/README.md')
-          .then(response => response.text())
-          .then(data => output.innerHTML = marked(data));
-        }
+        const response = await fetch('https://raw.githubusercontent.com/zacharlie/silver-spork/publish/README.md')
+	  .then(response => response.text());
+        output.innerHTML = marked(response);
+        refreshtoc();
+      }
     </script>
   </head>
 
@@ -79,11 +80,18 @@
 
     <script>document.title = newTitle</script>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 
-    <script id="tocbot-config">tocbot.init({tocSelector: '.js-toc',contentSelector: '.js-toc-content',ignoreSelector: '.js-toc-ignore',headingSelector: 'h1, h2, h3, h4, h5',});tocbot.refresh();</script>
+    <script id="tocbot-config">tocbot.init({tocSelector: '.js-toc',contentSelector: '.js-toc-content',ignoreSelector: '.js-toc-ignore',headingSelector: 'h1, h2, h3, h4, h5',});</script>
 
+    <script>
+      function refreshtoc(){
+        // add brief delay for the page content to load
+        setTimeout(()=>{tocbot.refresh()},10)
+      }
+    </script>
+	
   </body>
 </html>

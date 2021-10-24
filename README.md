@@ -2,6 +2,10 @@
 
 The aim of this repo is to teach users how to easily publish basic webmaps using QGIS Desktop and GitHub Pages.
 
+## [Code](https://github.com/zacharlie/silver-spork)
+
+## [Site](https://zacharlie.github.io/silver-spork)
+
 The concepts outlined in this documentation and the samples provided may be relevant to various digital assets and web technologies, however this project is of course primarily focussed on simple spatial data services.
 
 ## TL;DR

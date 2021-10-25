@@ -2,6 +2,10 @@
 
 The aim of this repo is to teach users how to easily publish basic webmaps using QGIS Desktop and GitHub Pages.
 
+## [Code](https://github.com/zacharlie/silver-spork)
+
+## [Site](https://zacharlie.github.io/silver-spork)
+
 The concepts outlined in this documentation and the samples provided may be relevant to various digital assets and web technologies, however this project is of course primarily focussed on simple spatial data services.
 
 ## TL;DR
@@ -54,6 +58,10 @@ The QGIS Easter Egg Data can be viewed directly in GitHub:
 - https://github.com/zacharlie/silver-spork/blob/publish/geojson/easter/worldmap.geojson
 
 As stated, this will automagically display your data in a simple mapbox app frame. Obviously this gets a bit more complex when you want to have multiple layers or have various different items in a feature collection, but we'll get to that later.
+
+### Leaflet
+
+- [NEO GEO](./leaflet/neo-geo.html): A basic, but non-trivial example of a leaflet map using the NASA Earth Observation WMS which supports only geographic data
 
 ### QGIS2Web
 

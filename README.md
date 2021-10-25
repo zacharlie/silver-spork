@@ -59,6 +59,10 @@ The QGIS Easter Egg Data can be viewed directly in GitHub:
 
 As stated, this will automagically display your data in a simple mapbox app frame. Obviously this gets a bit more complex when you want to have multiple layers or have various different items in a feature collection, but we'll get to that later.
 
+### Leaflet
+
+- [NEO GEO](./leaflet/neo-geo.html): A basic, but non-trivial example of a leaflet map using the NASA Earth Observation WMS which supports only geographic data
+
 ### QGIS2Web
 
 A QGIS Desktop plugin for packaging a map project as a collection of static assets

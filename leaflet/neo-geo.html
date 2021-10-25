@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+    <title>NEO Leaflet Demo</title>
+  </head>
+  <body>
+
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- Reprojection Libraries
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.5/proj4.js"
+  integrity="sha512-MMmVaQGDVI3Wouc5zT5G7k/snN9gPqquIhZsHgIIHVDlRgYTYGxrwu6w482iIhAq8n5R6+pcBgpGgxFFBz7rZA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.min.js"
+  integrity="sha512-GsAYl1wxzWW6azVpXkhyYfjMb2LbaOnlrqWMBdAk9xDcilinFvGMN+48Ajp/10u/9lcnh8YyS2CYNgung7ewHg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+-->
+
+<!-- Add a border for safety gutters (lest users get trapped in the map frame) -->
+<div style="padding: 10px">
+  <!-- Add Leaflet Map Div -->
+  <div id="map" class="map"></div>
+</div>
+
+<style>
+#map {
+	width: 100%;
+	height:90vh;
+	}
+</style>
+
+<!-- Add Leaflet Parameters-->
+<script>
+const map = L.map('map', {
+  crs: L.CRS.EPSG4326,
+	center: [55, 15],
+	zoom: 4
+	});
+
+const osmLayer = L.tileLayer.wms(
+  'https://ows.terrestris.de/osm/service?SERVICE=WMS&VERSION=1.1.1',
+  {
+    layers: 'OSM-WMS'
+  })
+
+const osmGrayLayer = L.tileLayer.wms(
+  'https://ows.terrestris.de/osm-gray/service?SERVICE=WMS&VERSION=1.1.1',
+  {
+    layers: 'OSM-WMS'
+  }).addTo(map);
+
+const activeFiresMonthLayer = L.tileLayer.wms(
+  'https://neo.sci.gsfc.nasa.gov/wms/wms?version=1.3.0&crs=CRS:84',
+  {
+    layers: 'MOD14A1_M_FIRE'
+  })
+
+const activeFiresWeekLayer = L.tileLayer.wms(
+  'https://neo.sci.gsfc.nasa.gov/wms/wms?version=1.3.0&crs=CRS:84',
+  {
+    layers: 'MOD14A1_E_FIRE'
+  })
+
+const activeFiresDayLayer = L.tileLayer.wms(
+  'https://neo.sci.gsfc.nasa.gov/wms/wms?version=1.3.0&crs=CRS:84',
+  {
+    layers: 'MOD14A1_D_FIRE'
+  })
+
+const albedoMonthLayer = L.tileLayer.wms(
+  'https://neo.sci.gsfc.nasa.gov/wms/wms?version=1.3.0&crs=CRS:84',
+  {
+    layers: 'MCD43C3_M_BSA'
+  }).addTo(map);
+  
+L.control.layers({'None': L.tileLayer(''),"OSM": osmLayer, "OSM Gray": osmGrayLayer},
+  {
+    "Active Fires (Month)": activeFiresMonthLayer,
+    "Active Fires (Week)": activeFiresWeekLayer,
+    "Active Fires (Day)": activeFiresDayLayer,
+    "Albedo (Month)": albedoMonthLayer
+  }).addTo(map);
+
+</script>
+<p style="width: 100%;text-align: center"><a href="https://zacharlie.github.io/silver-spork">Charlie's Silver Spork at Github</a></p>
+    </body>
+</html>
